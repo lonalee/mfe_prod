@@ -7,7 +7,7 @@ export default () => {
     // container & child Apps 사이에 커플링을 없애기 위해서..
     // 심지어 양쪽 어디에서든 기술적으로 변화를 가해도 서로 영향을 주고 받지 않기 위해서...
     return <div>
-        <h2>Importing Marketing App</h2>
+        <h2>Importing Marketing App222222222</h2>
         <hr/>
         <MarketingApp />
     </div>
