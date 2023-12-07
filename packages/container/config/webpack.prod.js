@@ -9,6 +9,7 @@ const prodConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js", // 빌드 후 파일명 템플릿
+    publicPath: "/container/latest/" // public/index.html 파일에서 main스크립트 참조 위치를 추가해준다
   },
   plugins: [
     new ModuleFederationPlugin({
