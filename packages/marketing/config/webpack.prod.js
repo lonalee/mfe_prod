@@ -21,4 +21,4 @@ const prodConfig = {
     ]
 }
 
-module.exports = merge(prodConfig, commonConfig)
+module.exports = merge(commonConfig, prodConfig)
