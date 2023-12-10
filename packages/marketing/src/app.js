@@ -4,6 +4,7 @@ import { StylesProvider } from '@material-ui/core/styles'
 
 import Landing from './components/Landing'
 import Pricing from './components/Pricing'
+import Til from './components/Til'
 
 export default () => {
 
@@ -11,6 +12,7 @@ export default () => {
         <StylesProvider>
             <BrowserRouter>
                 <Switch>
+                    <Route path='/til' exact component={Til} />
                     <Route path='/pricing' exact component={Pricing} />
                     <Route path='/' component={Landing} />
                 </Switch>
