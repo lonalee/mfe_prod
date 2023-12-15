@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import MarkDown from "markdown-to-jsx";
 
 const Til = () => {
-    return <h2>
-        This will import MD files to show "Today I learned".
-    </h2>
-}
+  const [post, setPost] = useState("");
+  useEffect(() => {
+    import("../markdown/tIl_20231129.md")
+      .then((res) => {
+        fetch(res.default)
+          .then((res) => {
+            console.log("res", res);
+            res.text();
+          })
+          .then((res) => setPost(res))
+          .catch((err) => console.log("error occured", err));
+      })
+      .catch((err) => console.log("error occured", err));
+  });
 
-export default Til
+  return (
+    <div className="container">
+      <MarkDown>{post}</MarkDown>
+    </div>
+  );
+};
+
+export default Til;
