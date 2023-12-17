@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createMemoryHistory } from "history";
 
-import App from './app'
+import App from "./app";
 
 // mount function : 초기 렌더링을 담당
 const mount = (el) => {
-  ReactDOM.render(<App />, el);
+  const history = createMemoryHistory()
+  ReactDOM.render(<App history={history} />, el);
 };
 
 // in dev mode (=isolated environment)
