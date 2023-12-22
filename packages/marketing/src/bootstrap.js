@@ -5,8 +5,10 @@ import { createMemoryHistory } from "history";
 import App from "./app";
 
 // mount function : 초기 렌더링을 담당
-const mount = (el) => {
+const mount = (el, { onNavigate } ) => {
   const history = createMemoryHistory()
+  history.listen(onNavigate); // 페이지 이동을 감지하도록 listen, 감지되면 onNavigate
+
   ReactDOM.render(<App history={history} />, el);
 };
 
