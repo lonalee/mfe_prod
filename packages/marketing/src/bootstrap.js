@@ -1,15 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createMemoryHistory } from "history";
+import { createMemoryHistory, createBrowserHistory } from "history";
 
 import App from "./app";
 
 // mount function : 초기 렌더링을 담당
-const mount = (el, { onNavigate } ) => {
-  const history = createMemoryHistory()
-  history.listen(onNavigate); // 페이지 이동을 감지하도록 listen, 감지되면 onNavigate
+const mount = (el, { onNavigate, defaultHistory }) => {
+  const history = defaultHistory|| createMemoryHistory()
+
+
+  if (onNavigate) history.listen(onNavigate); // 페이지 이동을 감지하도록 listen, 감지되면 onNavigate
 
   ReactDOM.render(<App history={history} />, el);
+  return {
+    onParentNavigate: ({ pathname: nextPathname }) => { 
+      const { pathname } = history.location
+
+      if(pathname !== nextPathname) history.push(nextPathname) 
+    }
+  }
 };
 
 // in dev mode (=isolated environment)
@@ -17,7 +26,9 @@ const mount = (el, { onNavigate } ) => {
 if (process.env.NODE_ENV === "development") {
   const devRoot = document.querySelector("#_marketing-dev-root");
   if (devRoot) {
-    mount(devRoot);
+    mount(devRoot, {
+      defaultHistory: createBrowserHistory()
+    });
   }
 }
 
