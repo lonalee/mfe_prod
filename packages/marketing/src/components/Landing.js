@@ -94,11 +94,11 @@ export default function Album() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Link to="/til">
+                  {/* <Link to="/til">
                     <Button variant="contained" color="primary">
                       TIL
                     </Button>
-                  </Link>
+                  </Link> */}
                 </Grid>
                 <Grid item>
                   <Link to="/pricing">
