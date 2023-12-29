@@ -25,7 +25,7 @@ export default () => {
           <Route path="/auth" component={AuthApp} />
           <Route path="/" component={MarketingApp} />
         </Switch>
-        <MarketingApp />
+        
       </StylesProvider>
     </BrowserRouter>
   );

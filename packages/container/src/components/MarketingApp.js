@@ -9,6 +9,7 @@ export default () => {
 
   useEffect(() => {
     const { onParentNavigate } = mount(ref.current, {
+      initialPath: history.location.pathname,
       // Marketing app 내에서 페이지 이동이 발생할 때 호출하는 콜백
       onNavigate: ({ pathname: nextPathname }) => {
         // 컨테이너에서 생성된 history obj(=브라우저 히스토리 obj)에 접근하여 이동하려는 pathname을 추가해주면 sync가 맞게된다
