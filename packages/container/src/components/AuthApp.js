@@ -20,6 +20,7 @@ export default () => {
         
         if (pathname !== nextPathname) history.push(nextPathname)
       },
+      onSignIn: () => { console.log('user sign in')}
     });
 
     history.listen(onParentNavigate)
