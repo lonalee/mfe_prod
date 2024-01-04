@@ -10,6 +10,7 @@ import Progress from "./components/Progress";
 
 const MarketingLazy = lazy(() => import("./components/MarketingApp"));
 const AuthLazy = lazy(() => import("./components/AuthApp"));
+const DashboardLazy = lazy(()=> import('./components/DashboardApp'))
 // MarketingLazy & AuthLazy는 모두 리액트 컴포넌트이다. 코드에서 이 컴포넌트들을 참조할 때만 import 또는 load된다.
 
 const generateClassName = createGenerateClassName({
@@ -33,6 +34,9 @@ export default () => {
             <Route path="/auth">
               <AuthLazy onSignIn={() => setIsSignedIn(true)} />
             </Route>
+            
+            <Route path="/dashboard" component={DashboardLazy} />
+
             <Route path="/" component={MarketingLazy} />
           </Switch>
         </Suspense>
