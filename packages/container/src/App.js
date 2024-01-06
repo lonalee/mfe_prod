@@ -10,10 +10,11 @@ import { createBrowserHistory } from 'history'
 import Header from "./components/Header";
 import Progress from "./components/Progress";
 
+// MarketingLazy & AuthLazy는 모두 리액트 컴포넌트이다. 코드에서 이 컴포넌트들을 참조할 때만 import 또는 load된다.
 const MarketingLazy = lazy(() => import("./components/MarketingApp"));
 const AuthLazy = lazy(() => import("./components/AuthApp"));
 const DashboardLazy = lazy(()=> import('./components/DashboardApp'))
-// MarketingLazy & AuthLazy는 모두 리액트 컴포넌트이다. 코드에서 이 컴포넌트들을 참조할 때만 import 또는 load된다.
+const BlogLazy = lazy(()=> import('./components/BlogApp'))
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "co",
@@ -52,7 +53,8 @@ export default () => {
               {!isSignedIn && <Redirect to="/" />}
               <DashboardLazy />
             </Route>
-            
+
+            <Route path="/blog" component={BlogLazy} />
             <Route path="/" component={MarketingLazy} />
           </Switch>
         </Suspense>

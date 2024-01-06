@@ -23,7 +23,8 @@ const devConfig = {
                 marketing: 'marketing@http://localhost:8081/remoteEntry.js',
                 // marketing 프로젝트의 webpack dev config에서 정의한 name- marketing
                 auth: 'auth@http://localhost:8082/remoteEntry.js',
-                dashboard: 'dashboard@http://localhost:8083/remoteEntry.js'
+                dashboard: 'dashboard@http://localhost:8083/remoteEntry.js',
+                blog: 'blog@http://localhost:8084/remoteEntry.js'
             },
             shared: packageJson.dependencies
         }),
