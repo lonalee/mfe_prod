@@ -14,7 +14,6 @@ import Progress from "./components/Progress";
 const MarketingLazy = lazy(() => import("./components/MarketingApp"));
 const AuthLazy = lazy(() => import("./components/AuthApp"));
 const DashboardLazy = lazy(()=> import('./components/DashboardApp'))
-const BlogLazy = lazy(()=> import('./components/BlogApp'))
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "co",
@@ -54,7 +53,6 @@ export default () => {
               <DashboardLazy />
             </Route>
 
-            <Route path="/blog" component={BlogLazy} />
             <Route path="/" component={MarketingLazy} />
           </Switch>
         </Suspense>
@@ -62,3 +60,12 @@ export default () => {
     </Router>
   );
 };
+
+/**
+ * Wrap up
+ * 요구사항이 아키텍쳐를 결정한다.
+ * 항상 자문해야 한다. "미래에 어떤 것을 변경해야 한다면, 다른 앱도 변경해야 하는가?"
+ * 모든 이들로부터 결국에는 리액트는 잊혀질 것이다.
+ * CSS 범위를 결정 지어야 한다. (ex. dev VS prod -> 클래스 명 차이 발생)
+ * MFE 아키텍쳐에서는 dev 환경에서는 접하지 못했던 이슈를 Prod 환경에서는 접하게 될 수도 있다.
+ */
