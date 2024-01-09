@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import MaterialLink from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
+import Carousel from './Carousel'
 
 function Copyright() {
   return (
@@ -111,6 +112,7 @@ export default function Album() {
             </div>
           </Container>
         </div>
+        <Carousel />
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
